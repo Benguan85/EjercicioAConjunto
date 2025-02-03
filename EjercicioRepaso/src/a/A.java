@@ -69,10 +69,35 @@ public class A {
 				break;
 
 			case 3:
-
+				System.out.println("Introduce el término a buscar: ");
+				String terminoBuscado = s.next();
+				for (Palabra palabra : diccionario) {
+					if (palabra != null && palabra.getTermino().equals(terminoBuscado)) {
+						System.out.println("Definición: " + palabra.getDefinicion());
+						break;
+					}
+				}
 				break;
 			case 4:
-				break;
+			    System.out.println("Introduce el término a eliminar: ");
+			    String terminoEliminar = s.next();
+
+			   
+			    for (int i = 0; i < contador; i++) {
+			        if (diccionario[i].getTermino().compareTo(terminoEliminar) == 0) {
+			        	
+			            // Eliminar término
+			            for (int j = i; j < contador - 1; j++) {
+			                diccionario[j] = diccionario[j + 1];  // Desplazar los elementos
+			            }
+			            diccionario[contador - 1] = null;  // Quitamos hueco al array diccionario
+			            contador--;  //Le restamos un hueco al array
+			            System.out.println("Término eliminado con éxito.");
+			            break;  // Salimos al eliminar la palabra(término
+			        }
+			    }
+			    
+			    break;
 
 			case 0:
 				System.out.println("Fin del programa");
